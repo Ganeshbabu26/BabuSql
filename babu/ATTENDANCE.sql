@@ -251,3 +251,10 @@ SELECT NAME, CITY,
         ELSE 100
     END
 ) AS AMOUNT FROM STUDENTS WHERE CITY IN("CHENNAI","TRICHY","MADURAI"); 
+
+SELECT ID, 
+       SUM(ASTATUS = 'P') AS Present_Count,
+       COUNT(*) AS Total_Days,
+       (SUM(ASTATUS = 'P') * 100.0 / COUNT(*)) AS Percentage
+FROM ATTENDANCE
+GROUP BY ID;
